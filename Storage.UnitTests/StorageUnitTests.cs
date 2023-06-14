@@ -26,7 +26,7 @@ namespace StorageUnitTestProject
         }
 
         [Test]
-        public void UnlimitedWarhouseTest()
+        public void UnlimitedWarehouseTest()
         {
             var storage = new UnlimitedWarehouseAdapter(storageUW);
 
