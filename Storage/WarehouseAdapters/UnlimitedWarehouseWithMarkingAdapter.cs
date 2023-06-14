@@ -7,32 +7,32 @@ using Warehouse;
 
 namespace Storage
 {
-    public class UnlimitedWarehouseWithmarkingAdapter : IStorage
+    public class UnlimitedWarehouseWithmarkingAdapter : IStorageWithMarking
     {
-        UnlimitedWarehouseWithMarking storage;
+        UnlimitedWarehouseWithMarking storageWithMarking;
 
         public UnlimitedWarehouseWithmarkingAdapter(UnlimitedWarehouseWithMarking warehouse)
         {
-            storage = warehouse;
+            storageWithMarking = warehouse;
         }
-        public void Add(object item)
+        public void Add(IMarked item)
         {
-            if (item is IMarked markedItem)
-                storage.Put(markedItem);
+            //if (item is IMarked markedItem)
+                storageWithMarking.Put(item);
         }
 
-        public bool Contains(object item)
+        public bool Contains(IMarked item)
         {
             if (item is IMarked markedItem)
-                return storage.IsKeep(markedItem);
+                return storageWithMarking.IsKeep(item);
 
             return false;
         }
 
-        public void Remove(object item)
+        public void Remove(IMarked item)
         {
-            if (item is IMarked markedItem)
-                storage.Drop(markedItem);
+            //if (item is IMarked markedItem)
+                storageWithMarking.Drop(item);
         }
     }
 }
