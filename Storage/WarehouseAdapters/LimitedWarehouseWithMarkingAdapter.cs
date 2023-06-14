@@ -7,31 +7,31 @@ using Warehouse;
 
 namespace Storage
 {
-    public class LimitedWarehouseWithMarkingAdapter : IStorage
+    public class LimitedWarehouseWithMarkingAdapter : IStorageWithMarking
     {
-        LimitedWareHouseWithMarking storage;
+        LimitedWareHouseWithMarking storageWithMarking;
 
         public LimitedWarehouseWithMarkingAdapter(LimitedWareHouseWithMarking warehouse)
         {
-            storage = warehouse;
+            storageWithMarking = warehouse;
         }
-        public void Add(object item)
+        public void Add(IMarked item)
         {
-            if (item is IMarked markedItem)
-                storage.Push(markedItem);
+            if (item is IMarked markedtem)
+                storageWithMarking.Push(item);
         }
 
-        public bool Contains(object item)
+        public bool Contains(IMarked item)
         {
             if (item is IMarked markedItem)
-                return storage.IsKeep(markedItem);
+                return storageWithMarking.IsKeep(item);
             return false;
         }
 
-        public void Remove(object item)
+        public void Remove(IMarked item)
         {
             if (item is IMarked markedItem)
-                storage.Delete(markedItem);
+                storageWithMarking.Delete(item);
         }
     }
 }

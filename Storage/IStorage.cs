@@ -12,5 +12,11 @@ namespace Storage
         void Add(object item);
         void Remove(object item);
         bool Contains(object item);
-    }   
+    }
+    public interface IStorageWithMarking
+    {
+        void Add(IMarked item);
+        bool Contains(IMarked item);
+        void Remove(IMarked item);
+    }
 }
