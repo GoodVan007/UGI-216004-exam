@@ -17,7 +17,7 @@ namespace Storage
         }
         public void Add(IMarked item)
         {
-            //if (item is IMarked markedItem)
+            if (item is IMarked markedItem)
                 storageWithMarking.Put(item);
         }
 
@@ -31,7 +31,7 @@ namespace Storage
 
         public void Remove(IMarked item)
         {
-            //if (item is IMarked markedItem)
+            if (item is IMarked markedItem)
                 storageWithMarking.Drop(item);
         }
     }

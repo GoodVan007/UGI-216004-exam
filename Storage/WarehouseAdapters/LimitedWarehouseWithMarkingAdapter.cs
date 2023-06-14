@@ -17,20 +17,20 @@ namespace Storage
         }
         public void Add(IMarked item)
         {
-            //if (item is IMarked markedtem)
+            if (item is IMarked markedtem)
                 storageWithMarking.Push(item);
         }
 
         public bool Contains(IMarked item)
         {
-            //if (item is IMarked markedItem)
+            if (item is IMarked markedItem)
                 return storageWithMarking.IsKeep(item);
-            //return false;
+            return false;
         }
 
         public void Remove(IMarked item)
         {
-            //if (item is IMarked markedItem)
+            if (item is IMarked markedItem)
                 storageWithMarking.Delete(item);
         }
     }

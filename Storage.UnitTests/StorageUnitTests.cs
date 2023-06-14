@@ -41,6 +41,8 @@ namespace StorageUnitTestProject
             AssertStorageAddDeleteWithMarking(storageWithMarking, productA);
             //AssertStorageAddDeleteWithMarking(storageWithMarking, productB); - не реализует IMarked,
             //пока я не знаю как сделать, чтобы все работало - оставляю так.
+            // Иначе говоря, Product B - не маркированный, а в этом хранилище только маркированные,
+                   // из-за чего мы не можем компилировать код
         }
 
         [Test]
